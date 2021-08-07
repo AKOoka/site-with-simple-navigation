@@ -1,0 +1,8 @@
+<div #sidebar class="sidebar-wrapper" [class.hidden]="isHidden">
+  <button class="toggle-show-button" (click)="toggleSidebar()"></button>
+  <aside class="sidebar" [class.fixed]="isFixed">
+    <app-sidebar-menu class="sidebar-menu sidebar-block"></app-sidebar-menu>
+    <app-sidebar-posts class="sidebar-block"></app-sidebar-posts>
+    <app-sidebar-contact class="sidebar-block"></app-sidebar-contact>
+  </aside>
+</div>

@@ -1,0 +1,58 @@
+@import "../../_variables.scss";
+@import "../../mixins.scss";
+
+.contact-text {
+  margin: 0;
+}
+
+.sidebar-contact-heading {
+  font-size: 1.4em;
+}
+
+.contact-link {
+  color: inherit;
+  border-bottom: dotted 1px;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+.contact-personal-info-list {
+  margin: 2em 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-personal-info {
+  position: relative;
+  padding-left: 3em;
+
+  &:nth-child(1n+2) {
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    border-top: solid 1px rgba(210, 215, 217, 0.75);
+  }
+}
+
+.icon-mail::before, .icon-phone::before, .icon-home::before {
+  width: 1.5em;
+  height: 1.125em;
+  line-height: 1.125em;
+  text-align: center;
+  color: $red;
+}
+
+.icon-mail::before {
+  @include icon("\f0e0", 1.5em, 900, '', 0);
+}
+
+.icon-phone::before {
+  @include icon("\f095", 1.5em, 900, '', 0);
+}
+
+.icon-home::before {
+  @include icon("\f015", 1.5em, 900, '', 0);
+}

@@ -1,0 +1,146 @@
+@import "../../variables";
+
+$gap: 6em;
+$gap-half: $gap / 2;
+$gap-small: 4.5em;
+$gap-small-half: $gap-small / 2;
+
+@mixin line($width, $height, $left: '', $right: '', $top: '', $bottom: '') {
+  width: $width;
+  height: $height;
+
+  @if ($left == '') {
+    left: unset;
+  } @else {
+    left: $left;
+  }
+  @if ($right == '') {
+    right: unset;
+  } @else {
+    right: $right;
+  }
+  @if ($top == '') {
+    top: unset;
+  } @else {
+    top: $top;
+  }
+  @if ($bottom == '') {
+    bottom: unset;
+  } @else {
+    bottom: $bottom;
+  }
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(3, calc(33.3% - 4em));
+  gap: $gap;
+
+  @media screen and (max-width: $max-width-screen-biggest) {
+    grid-template-columns: repeat(2, calc(50% - #{$gap-half}));
+  }
+
+  @media screen and (max-width: $max-width-screen-big) {
+    grid-template-columns: repeat(2, calc(50% - #{$gap-small-half}));
+    gap: $gap-small;
+  }
+
+  @media screen and (max-width: $max-width-screen-smaller) {
+    grid-template-columns: repeat(1, 100%);
+  }
+}
+
+.post {
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(210, 215, 217, 0.75);
+  }
+}
+
+.post-body {
+  margin-top: 2em;
+}
+
+@media screen and (min-width: $min-width-screen-biggest) {
+  .post {
+    &:nth-child(3n+4)::after {
+      @include line(calc(100% + #{$gap-half}), 1px, 0, '', -$gap-half);
+    }
+
+    &:nth-child(3n+6)::after {
+      @include line(calc(100% + #{$gap-half}), 1px, '', 0, -$gap-half);
+    }
+
+    &:nth-child(3n+5)::after {
+      @include line(calc(100% + #{$gap}), 1px, -$gap-half, '', -$gap-half);
+    }
+
+    &:nth-child(-n+2)::before {
+      @include line(1px, calc(100% + #{$gap-half}), '', -$gap-half, 0)
+    }
+    &:nth-child(n+4):not(&:nth-child(3n+3)):not(&:nth-last-child(-n+3))::before {
+      @include line(1px, calc(100% + #{$gap}), '', -$gap-half, -$gap-half)
+    }
+    &:nth-last-child(-n+3):not(&:nth-child(3n+3)):not(&:last-child)::before {
+      @include line(1px, calc(100% + #{$gap-half}), '', -$gap-half, -$gap-half)
+    }
+  }
+}
+
+@media screen and (max-width: $max-width-screen-biggest) {
+  .post {
+    &:nth-child(2n+2):not(&:last-child)::before {
+      @include line(1px, calc(100% + #{$gap}), -$gap-half, '', 0)
+    }
+
+    &:nth-child(2n+2):is(&:last-child)::before {
+      @include line(1px, 100%, -$gap-half, '', 0)
+    }
+
+    &:nth-child(even):not(&:nth-child(-n+2))::after {
+      @include line(calc(100% + #{$gap-half}), 1px, -$gap-half, 0, -$gap-half);
+    }
+
+    &:nth-child(odd):not(&:nth-child(-n+2))::after {
+      @include line(calc(100% + #{$gap-half}), 1px, 0, 0, -$gap-half);
+    }
+  }
+}
+
+
+@media screen and (max-width: $max-width-screen-big) {
+  .post {
+    &:nth-child(2n+2):not(&:last-child)::before {
+      @include line(1px, calc(100% + #{$gap-small}), -$gap-small-half, '', 0)
+    }
+
+    &:nth-child(2n+2):is(&:last-child)::before {
+      @include line(1px, 100%, -$gap-small-half, '', 0)
+    }
+
+    &:nth-child(even):not(&:nth-child(-n+2))::after {
+      @include line(calc(100% + #{$gap-small-half}), 1px, -$gap-small-half, 0, -$gap-small-half);
+    }
+
+    &:nth-child(odd):not(&:nth-child(-n+2))::after {
+      @include line(calc(100% + #{$gap-small-half}), 1px, 0, 0, -$gap-small-half);
+    }
+  }
+}
+
+@media screen and (max-width: $max-width-screen-smaller) {
+  .post::before {
+    display: none;
+  }
+  .post {
+    &:nth-child(n):not(&:last-child)::after {
+      @include line(100%, 1px, 0, '', '', -$gap-small-half)
+    }
+    &:last-child::after {
+      display: none;
+    }
+  }
+}

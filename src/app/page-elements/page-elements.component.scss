@@ -1,0 +1,37 @@
+@import "../../variables.scss";
+
+.text-section {
+  display: grid;
+  gap: 2em 1.5em;
+  grid-template-areas: 'one one one one one one'
+                       'two two two three three three'
+                       'four four five five six six';
+
+  @media screen and (max-width: $max-width-screen-small) {
+    grid-template-areas: 'one' 'two' 'three' 'four' 'five' 'six';
+  }
+}
+
+.text-section-one {
+  grid-area: one;
+}
+
+.text-section-two {
+  grid-area: two;
+}
+
+.text-section-three {
+  grid-area: three;
+}
+
+.text-section-four {
+  grid-area: four;
+}
+
+.text-section-five {
+  grid-area: five;
+}
+
+.text-section-six {
+  grid-area: six;
+}

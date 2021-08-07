@@ -1,0 +1,5 @@
+<h2 class="sidebar-posts-heading heading-underline">Ante interdum</h2>
+<article class="sidebar-post" *ngFor="let content of postsContent">
+  <app-img-link [linkRef]="content.linkRef" [imgName]="content.imgName"></app-img-link>
+  <p class="sidebar-post-text">{{ content.text }}</p>
+</article>

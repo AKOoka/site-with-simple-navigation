@@ -1,0 +1,79 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.sidebar-menu {
+  font-family: "Roboto Slab", serif;
+}
+
+.sidebar-menu-heading {
+  font-size: 1.4em;
+}
+
+.menu-list {
+  padding: 0;
+  list-style: none;
+}
+
+.main-menu-list {
+  margin: 0;
+}
+
+.sub-menu-button {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  letter-spacing: inherit;
+  font: inherit;
+}
+
+.sub-menu-list {
+  margin: 0.5em 0 1.5em 1em;
+}
+
+.menu-item {
+  letter-spacing: 0.075em;
+
+  &:nth-child(n+2) {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    border-top: solid 1px rgba(210, 215, 217, 0.75);
+  }
+}
+
+.menu-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  display: inline-block;
+  width: 100%;
+  transition: color 0.2s ease-in-out;
+  padding: 0.625em 0;
+  font-size: 0.9em;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+.menu-expandable {
+  &:hover::after {
+    color: $red;
+  }
+
+  &::after {
+    @include icon("\f078", 1em, 900, '', '', 0);
+    color: inherit;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+}
+
+.menu-expandable.expanded::after {
+  transform: rotate(180deg);
+}
+
+.hidden {
+  display: none;
+}

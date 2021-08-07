@@ -1,0 +1,182 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.page-block {
+  display: block;
+}
+
+.main-article {
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (orientation: portrait) {
+    flex-direction: column-reverse;
+  }
+}
+
+.main-article-content {
+  width: 50%;
+
+  @media screen and (orientation: portrait) {
+    width: 100%;
+  }
+}
+
+.main-article-text {
+  margin: 0 0 2em 0;
+}
+
+.main-article-img {
+  width: 50%;
+  margin-left: 4em;
+  border-radius: 0.375em;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  @media screen and (orientation: portrait) {
+    width: 100%;
+    margin: 0 0 4em;
+    height: 25em;
+  }
+}
+
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.feature {
+  width: calc(50% - 1.5em);
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: $max-width-screen-big) {
+    width: 100%;
+    margin-bottom: 3em;
+  }
+
+  @media screen and (max-width: $max-width-screen-small) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &:nth-child(2n) {
+    margin-left: 1.5em;
+
+    @media screen and (max-width: $max-width-screen-big) {
+      margin-left: 0;
+    }
+  }
+
+  &:nth-child(n+3) {
+    @media screen and (min-width: $min-width-screen-big) {
+      margin-top: 3em;
+    }
+  }
+}
+
+.feature-text {
+  margin: 0;
+}
+
+.icon-block {
+  width: 10em;
+  height: 10em;
+  line-height: 10em;
+  flex-shrink: 0;
+  margin-right: 2em;
+  position: relative;
+  text-align: center;
+  color: $red;
+
+  @media screen and (max-width: $max-width-screen-big) {
+    height: 8em;
+    width: 8em;
+    line-height: 8em;
+  }
+
+  @media screen and (max-width: $max-width-screen-smaller) {
+    height: 6em;
+    width: 6em;
+    line-height: 6em;
+    margin: 0 0 1.5em;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 7em;
+    height: 7em;
+    left: calc(50% - 3.5em);
+    top: calc(50% - 3.5em);
+    border: solid 2px rgba(210, 215, 217, 0.75);
+    border-radius: 0.25em;
+    transform: rotate(45deg);
+
+    @media screen and (max-width: $max-width-screen-big) {
+      width: 6em;
+      height: 6em;
+      left: calc(50% - 3em);
+      top: calc(50% - 3em);
+    }
+
+    @media screen and (max-width: $max-width-screen-smaller) {
+      width: 4em;
+      height: 4em;
+      left: calc(50% - 2em);
+      top: calc(50% - 2em);
+    }
+  }
+}
+
+.icon-gem::after {
+  @include icon("\f3a5", 2.75em, 400);
+
+  @media screen and (max-width: $max-width-screen-big) {
+    font-size: 2.25rem;
+  }
+
+  @media screen and (max-width: $max-width-screen-smaller) {
+    font-size: 1.5rem;
+  }
+}
+
+.icon-rocket::after {
+  @include icon("\f135", 2.75em, 900);
+
+  @media screen and (max-width: $max-width-screen-big) {
+    font-size: 2.25rem;
+  }
+
+  @media screen and (max-width: $max-width-screen-smaller) {
+    font-size: 1.5rem;
+  }
+}
+
+.icon-paper-plane::after {
+  @include icon("\f1d8", 2.75em, 900);
+
+  @media screen and (max-width: $max-width-screen-big) {
+    font-size: 2.25rem;
+  }
+
+  @media screen and (max-width: $max-width-screen-smaller) {
+    font-size: 1.5rem;
+  }
+}
+
+.icon-signal::after {
+  @include icon("\f012", 2.75em, 900);
+
+  @media screen and (max-width: $max-width-screen-big) {
+    font-size: 2.25rem;
+  }
+
+  @media screen and (max-width: $max-width-screen-smaller) {
+    font-size: 1.5rem;
+  }
+}

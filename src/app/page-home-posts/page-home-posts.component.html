@@ -1,0 +1,11 @@
+<h2 class="h2-font-size-default heading-underline">Ipsum sed dolor</h2>
+<section class="post-list">
+  <article class="post" *ngFor="let content of postsContent">
+    <app-img-link [linkRef]="content.linkRef" [imgName]="content.imgName"></app-img-link>
+    <section class="post-body">
+      <h3 class="h3-font-size-default h-margin-default">{{ content.headingText }}</h3>
+      <p class="p-margin-default">{{ content.paragraphText }}</p>
+      <button class="link-button" [routerLink]="content.linkRef">MORE</button>
+    </section>
+  </article>
+</section>

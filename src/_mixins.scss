@@ -1,0 +1,24 @@
+@mixin icon ($iconContent, $fontSize, $fontWeight, $top: '', $left: '', $right: '') {
+  content: $iconContent;
+  font: {
+    size: $fontSize;
+    family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+    weight: $fontWeight;
+  }
+
+  @if ($top != '' or $left != '' or $right != '') {
+    position: absolute;
+  }
+
+  @if ($top != '') {
+    top: $top;
+  }
+
+  @if ($left != '') {
+    left: $left;
+  }
+
+  @if ($right != '') {
+    right: $right;
+  }
+}

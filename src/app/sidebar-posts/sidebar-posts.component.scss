@@ -1,0 +1,18 @@
+.sidebar-post {
+  box-sizing: border-box;
+
+  // TODO: find out why offset 3 not 2
+  &:nth-child(1n+3) {
+    padding-top: 2em;
+    margin-top: 2em;
+    border-top: solid 1px rgba(210, 215, 217, 0.75);
+  }
+}
+
+.sidebar-posts-heading {
+  font-size: 1.4em;
+}
+
+.sidebar-post-text {
+  margin: 1.5em 0 0em 0;
+}
